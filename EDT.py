@@ -24,8 +24,7 @@ class Ui_Edit(object):
         gradeValue = self.gradeValue.text()
 
         #SQL INSERT statement
-        set = ""
-        #(firstName, lastName, year, Class, Grade, assignmentName, assignmentType) ('" + firstName + "', '" + lastName + "', '" + year + "', '" + className + "', '" + gradeValue + "', '" + assignName + "', '" + assignType + "')
+        set = "firstName = '" + firstName + "', lastName = '" + lastName + "', year = '" + year + "', Class = '" + className + "', Grade = '" + gradeValue + "', assignmentName = '" + assignName + "', assignmentType = '" + assignType + "'"
         query = "UPDATE TestTable SET "+ set +" WHERE firstName = "+ fnameEdit +", lastName = "+ lnameEdit +", assignmentName = "+ WasgnName +";"
         print(query)
         mycursor.execute(query)

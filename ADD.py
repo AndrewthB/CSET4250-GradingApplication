@@ -23,7 +23,7 @@ class Ui_ADD(object):
 
         #SQL INSERT statement
         query = "INSERT INTO TestTable (entryID, firstName, lastName, year, Class, Grade, assignmentName, assignmentType) VALUES ('"+ entryID + "', '" + firstName + "', '" + lastName + "', '" + year + "', '" + className + "', '" + gradeValue + "', '" + assignName + "', '" + assignType + "');"
-        #print(query)
+        print(query)
         mycursor.execute(query)
         mydb.commit()
         mycursor.close()
@@ -107,6 +107,7 @@ class Ui_ADD(object):
         self.submit = QtWidgets.QPushButton(self.centralwidget)
         self.submit.setObjectName("submit")
         self.gridLayout.addWidget(self.submit, 17, 0, 1, 1)
+        self.submit.clicked.connect(self.addEntry)
         
         self.cancel = QtWidgets.QPushButton(self.centralwidget)
         self.cancel.setObjectName("cancel")
