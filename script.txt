@@ -1,0 +1,14 @@
+TestDatabase = "CREATE DATABASE TestDatabase;"
+TestTable = """CREATE TABLE TestTable (
+                      `entryID` INT NOT NULL,
+                      `firstName` VARCHAR(45) NOT NULL,
+                      `lastName` VARCHAR(45) NOT NULL,
+                      `year` VARCHAR(45) NOT NULL,
+                      `Class` VARCHAR(45) NOT NULL,
+                      `assignmentType` VARCHAR(45) NOT NULL,
+                      `assignmentName` VARCHAR(45) BINARY NOT NULL,
+                      `Grade` INT NOT NULL,
+                      PRIMARY KEY (`entryID`),
+                      UNIQUE INDEX `entryID_UNIQUE` (`entryID` ASC) VISIBLE)"""
+mycursor.execute(TestDatabase)
+mycursor.execute(TestTable)

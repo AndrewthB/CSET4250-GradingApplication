@@ -6,9 +6,8 @@ from DEL import Ui_Delete
 from EDT import Ui_Edit
 
 class Ui_MainWindow(object):
-    #$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$.
-    #Only the show all tables button works. The other 3 sorting options crash the program.
-    #Shows all table entries
+#$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+#Shows all table entries
     def show_ALL(self):
         #Login to SQL Database
         mydb = mysql.connector.connect(
@@ -28,8 +27,9 @@ class Ui_MainWindow(object):
             for column_number, data in enumerate(row_data):
                 self.tableWidget.setItem(row_number, column_number, QtWidgets.QTableWidgetItem(str(data)))
         mycursor.close()
-     #Sort table entries by Assignment Name
-    def sortAsgmt(self):
+
+#Sort table entries by Assignment Name
+    def sortAssignment(self):
         #Login to SQL Database
         mydb = mysql.connector.connect(
             host = "localhost",
@@ -49,7 +49,7 @@ class Ui_MainWindow(object):
                 self.tableWidget.setItem(row_number, column_number, QtWidgets.QTableWidgetItem(str(data)))
         mycursor.close()
 
-    #Sort table entires by Student Name (first name)
+#Sort table entires by Student Name (first name)
     def sortStudent(self):
         #Login to SQL Database
         mydb = mysql.connector.connect(
@@ -70,7 +70,7 @@ class Ui_MainWindow(object):
                 self.tableWidget.setItem(row_number, column_number, QtWidgets.QTableWidgetItem(str(data)))
         mycursor.close()
 
-    #Sort table by Class name
+#Sort table by Class name
     def sortClass(self):
         #Login to SQL Database
         mydb = mysql.connector.connect(
@@ -90,35 +90,35 @@ class Ui_MainWindow(object):
             for column_number, data in enumerate(row_data):
                 self.tableWidget.setItem(row_number, column_number, QtWidgets.QTableWidgetItem(str(data)))
         mycursor.close()
-    #$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+#$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
 
-    #Launch Popup Window displaying Add Entry forum
+#Launch Popup Window displaying Add Entry forum
     def queryIN(self):
         self.window = QtWidgets.QMainWindow()
         self.ui = Ui_ADD()
         self.ui.setupUi(self.window)
         self.window.show()
 
-    #Launch Popup Window displaying Delete Entry forum
+#Launch Popup Window displaying Delete Entry forum
     def queryDL(self):
         self.window = QtWidgets.QMainWindow()
         self.ui = Ui_Delete()
         self.ui.setupUi(self.window)
         self.window.show()
 
-    #Launch Popup Window displaying Edit Entry forum
+#Launch Popup Window displaying Edit Entry forum
     def queryED(self):
         self.window = QtWidgets.QMainWindow()
         self.ui = Ui_Edit()
         self.ui.setupUi(self.window)
         self.window.show()
-    #$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+
+#$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(740, 395)
+        MainWindow.resize(835, 400)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
-        
         self.gridLayout = QtWidgets.QGridLayout(self.centralwidget)
         self.gridLayout.setObjectName("gridLayout")
         
@@ -169,7 +169,7 @@ class Ui_MainWindow(object):
         self.sortAssignment = QtWidgets.QPushButton(self.centralwidget)
         self.sortAssignment.setObjectName("sortAssignment")
         self.gridLayout.addWidget(self.sortAssignment, 1, 2, 1, 1)
-        #self.sortAssignment.clicked.connect(self.sortAsgmt)
+        #self.sortAssignment.clicked.connect(self.sortAssignment)
         
         #Irrelivant 
         MainWindow.setCentralWidget(self.centralwidget)

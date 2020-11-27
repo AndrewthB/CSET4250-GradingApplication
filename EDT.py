@@ -24,12 +24,15 @@ class Ui_Edit(object):
         gradeValue = self.gradeValue.text()
 
         #SQL INSERT statement
-        set = "firstName = '" + firstName + "', lastName = '" + lastName + "', year = '" + year + "', Class = '" + className + "', Grade = '" + gradeValue + "', assignmentName = '" + assignName + "', assignmentType = '" + assignType + "'"
-        query = "UPDATE TestTable SET "+ set +" WHERE firstName = "+ fnameEdit +", lastName = "+ lnameEdit +", assignmentName = "+ WasgnName +";"
-        print(query)
-        mycursor.execute(query)
-        mydb.commit()
-        mycursor.close()
+        try:
+            set = "firstName = '" + firstName + "', lastName = '" + lastName + "', year = '" + year + "', Class = '" + className + "', Grade = '" + gradeValue + "', assignmentName = '" + assignName + "', assignmentType = '" + assignType + "'"
+            query = "UPDATE TestTable SET "+ set +" WHERE firstName = "+ fnameEdit +", lastName = "+ lnameEdit +", assignmentName = "+ WasgnName +";"
+            print(query)
+            mycursor.execute(query)
+            mydb.commit()
+            mycursor.close()
+        except:
+            print("Something went wrong")
 
     def setupUi(self, Edit):
         Edit.setObjectName("Edit")

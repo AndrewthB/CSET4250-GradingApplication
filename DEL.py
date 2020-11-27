@@ -15,12 +15,15 @@ class Ui_Delete(object):
         entryID = self.entryID.text()
         
         #SQL INSERT statement
-        query = "DELETE FROM TestTable WHERE (entryID = '" + entryID + "');"
-        #print(query)
-        mycursor.execute(query)
-        mydb.commit()
-        mycursor.close()
-    
+        try:
+            query = "DELETE FROM TestTable WHERE (entryID = '" + entryID + "');"
+            #print(query)
+            mycursor.execute(query)
+            mydb.commit()
+            mycursor.close()
+        except:
+            print("Something went wrong")
+
     def setupUi(self, Delete):
         Delete.setObjectName("Delete")
         Delete.resize(322, 128)
