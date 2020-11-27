@@ -28,6 +28,7 @@ class Ui_ADD(object):
             mycursor.execute(query)
             mydb.commit()
             mycursor.close()
+            
         except:
             print("Something went wrong")
     

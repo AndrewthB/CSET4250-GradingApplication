@@ -4,17 +4,18 @@ from mysql.connector import *
 from ADD import Ui_ADD
 from DEL import Ui_Delete
 from EDT import Ui_Edit
+import globals
+
 
 class Ui_MainWindow(object):
-#$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
 #Shows all table entries
     def show_ALL(self):
         #Login to SQL Database
         mydb = mysql.connector.connect(
-            host = "localhost",
-            user = "yourusername",
-            password = "yourpassword",
-            database = "TestDatabase")
+            host = globals.hostname,
+            user = globals.username,
+            password = globals.passwordT,
+            database = globals.databaseT)
         mycursor = mydb.cursor()
         
         #Print TestTable to GUI Table
@@ -29,6 +30,7 @@ class Ui_MainWindow(object):
         mycursor.close()
 
 #Sort table entries by Assignment Name
+#Non-functional due to a problem with the button
     def sortAssignment(self):
         #Login to SQL Database
         mydb = mysql.connector.connect(
@@ -50,6 +52,7 @@ class Ui_MainWindow(object):
         mycursor.close()
 
 #Sort table entires by Student Name (first name)
+#Non-functional due to a problem with the button
     def sortStudent(self):
         #Login to SQL Database
         mydb = mysql.connector.connect(
@@ -71,6 +74,7 @@ class Ui_MainWindow(object):
         mycursor.close()
 
 #Sort table by Class name
+#Non-functional due to a problem with the button
     def sortClass(self):
         #Login to SQL Database
         mydb = mysql.connector.connect(
@@ -135,12 +139,14 @@ class Ui_MainWindow(object):
         self.query_ED.clicked.connect(self.queryED)
         
         #Sort table by Student Name
+        #Non-Functional
         self.sortStudent = QtWidgets.QPushButton(self.centralwidget)
         self.sortStudent.setObjectName("sortStudent")
         self.gridLayout.addWidget(self.sortStudent, 1, 1, 1, 1)
         #self.sortStudent.clicked.connect(self.sortStudent)
         
         #Sort table by Class
+        #Non-Functional
         self.sortClass = QtWidgets.QPushButton(self.centralwidget)
         self.sortClass.setObjectName("sortClass")
         self.gridLayout.addWidget(self.sortClass, 1, 3, 1, 1)
@@ -152,7 +158,7 @@ class Ui_MainWindow(object):
         self.gridLayout.addWidget(self.query_DL, 1, 5, 1, 1)
         self.query_DL.clicked.connect(self.queryDL)
         
-        #Table Widget
+        #Table Widget max 8 columns by 100 rows
         self.tableWidget = QtWidgets.QTableWidget(self.centralwidget)
         self.tableWidget.setObjectName("tableWidget")
         self.tableWidget.setColumnCount(8)
@@ -165,13 +171,14 @@ class Ui_MainWindow(object):
         self.gridLayout.addWidget(self.show_table, 1, 0, 1, 1)
         self.show_table.clicked.connect(self.show_ALL)
         
-        #Sort table by Assignment Name
+        #Sort table by Assignment Name 
+        #Non-Functional
         self.sortAssignment = QtWidgets.QPushButton(self.centralwidget)
         self.sortAssignment.setObjectName("sortAssignment")
         self.gridLayout.addWidget(self.sortAssignment, 1, 2, 1, 1)
         #self.sortAssignment.clicked.connect(self.sortAssignment)
         
-        #Irrelivant 
+        #Status Bar  
         MainWindow.setCentralWidget(self.centralwidget)
         self.statusbar = QtWidgets.QStatusBar(MainWindow)
         self.statusbar.setObjectName("statusbar")

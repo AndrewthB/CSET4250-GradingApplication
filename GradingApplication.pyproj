@@ -4,13 +4,14 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>0506a921-0f5a-46d1-bc81-e91a8a886699</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>Main.py</StartupFile>
+    <StartupFile>login.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
     <OutputPath>.</OutputPath>
     <Name>GradingApplication</Name>
     <RootNamespace>GradingApplication</RootNamespace>
+    <IsWindowsApplication>False</IsWindowsApplication>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>
