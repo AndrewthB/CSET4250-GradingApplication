@@ -92,7 +92,6 @@ class Ui_MainWindow(object):
             for column_number, data in enumerate(row_data):
                 self.tableWidget.setItem(row_number, column_number, QtWidgets.QTableWidgetItem(str(data)))
         mycursor.close()
-#$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
 
 #Launch Popup Window displaying Add Entry forum
     def queryIN(self):

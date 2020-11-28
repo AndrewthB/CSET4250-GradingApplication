@@ -65,7 +65,7 @@ class Ui_Delete(object):
 
     def retranslateUi(self, Delete):
         _translate = QtCore.QCoreApplication.translate
-        Delete.setWindowTitle(_translate("Delete", "Delete Assignment Entry"))
+        Delete.setWindowTitle(_translate("Delete", "Delete Entry"))
         self.submit.setText(_translate("Delete", "Enter"))
         self.cancel.setText(_translate("Delete", "Cancel"))
         self.label_2.setText(_translate("Delete", "Specify an Entry by its ID for Deletion"))
